@@ -1,15 +1,18 @@
 {
   "files": {
-    "main.css": "/portfolio/static/css/main.d0bcc49f.css",
-    "main.js": "/portfolio/static/js/main.030bfe31.js",
+    "main.css": "/portfolio/static/css/main.89b58ef7.css",
+    "main.js": "/portfolio/static/js/main.ff8e018d.js",
     "static/media/VBV.jpg": "/portfolio/static/media/VBV.e627a00fc219b364261c.jpg",
-    "static/media/John-Cv.pdf": "/portfolio/static/media/John-Cv.e83747cf513e0b21a7f1.pdf",
+    "static/media/tina_png.png": "/portfolio/static/media/tina_png.51e60a87091c0e073583.png",
+    "static/media/Villaso_VhanneBrian_Resume.pdf": "/portfolio/static/media/Villaso_VhanneBrian_Resume.8326ea9d029db9186793.pdf",
+    "static/media/alliance.png": "/portfolio/static/media/alliance.cab0de524e691860d5e4.png",
+    "static/media/teknoplat.png": "/portfolio/static/media/teknoplat.86ec138c074873d3f6b9.png",
     "index.html": "/portfolio/index.html",
-    "main.d0bcc49f.css.map": "/portfolio/static/css/main.d0bcc49f.css.map",
-    "main.030bfe31.js.map": "/portfolio/static/js/main.030bfe31.js.map"
+    "main.89b58ef7.css.map": "/portfolio/static/css/main.89b58ef7.css.map",
+    "main.ff8e018d.js.map": "/portfolio/static/js/main.ff8e018d.js.map"
   },
   "entrypoints": [
-    "static/css/main.d0bcc49f.css",
-    "static/js/main.030bfe31.js"
+    "static/css/main.89b58ef7.css",
+    "static/js/main.ff8e018d.js"
   ]
 }
