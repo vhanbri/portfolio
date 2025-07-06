@@ -51,12 +51,16 @@ const Skills = () => {
     };
 
     useEffect(() => {
+        // Trigger animation immediately on component mount
+        const timer = setTimeout(() => {
+            animateSkills();
+        }, 500); // Small delay for better visual effect
+
         const observer = new IntersectionObserver(
             (entries) => {
                 entries.forEach((entry) => {
                     if (entry.isIntersecting && !isVisible) {
                         setIsVisible(true);
-                        animateSkills();
                     }
                 });
             },
@@ -68,7 +72,10 @@ const Skills = () => {
             observer.observe(skillsSection);
         }
 
-        return () => observer.disconnect();
+        return () => {
+            observer.disconnect();
+            clearTimeout(timer);
+        };
     }, [isVisible]);
 
     const animateSkills = () => {
@@ -87,7 +94,14 @@ const Skills = () => {
     };
 
     const getSkillLevel = (skillName) => {
-        return animatedSkills[skillName] || 0;
+        // Find the actual skill level from skillsData
+        for (const category of Object.values(skillsData)) {
+            const skill = category.skills.find(s => s.name === skillName);
+            if (skill) {
+                return animatedSkills[skillName] || skill.level;
+            }
+        }
+        return 0;
     };
 
     const getSkillLevelText = (level) => {

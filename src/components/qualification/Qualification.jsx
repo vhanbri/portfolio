@@ -3,7 +3,7 @@ import './qualification.css'
 
 const Qualification = () => {
     const [toggleState, setToggleState] = useState(1);
-    const [isVisible, setIsVisible] = useState(false);
+    const [isVisible, setIsVisible] = useState(true);
 
     const toggleTab = (index) => {
         setToggleState(index);
@@ -64,6 +64,11 @@ const Qualification = () => {
     ];
 
     useEffect(() => {
+        // Set content as visible immediately on component mount
+        const timer = setTimeout(() => {
+            setIsVisible(true);
+        }, 100); // Very small delay to ensure component is rendered
+
         const observer = new IntersectionObserver(
             (entries) => {
                 entries.forEach((entry) => {
@@ -72,7 +77,7 @@ const Qualification = () => {
                     }
                 });
             },
-            { threshold: 0.3 }
+            { threshold: 0.1 } // Lower threshold for better mobile experience
         );
 
         const qualificationSection = document.querySelector('.qualification');
@@ -80,7 +85,10 @@ const Qualification = () => {
             observer.observe(qualificationSection);
         }
 
-        return () => observer.disconnect();
+        return () => {
+            observer.disconnect();
+            clearTimeout(timer);
+        };
     }, []);
 
     const currentData = toggleState === 1 ? educationData : experienceData;
@@ -116,7 +124,7 @@ const Qualification = () => {
                         {currentData.map((item, index) => (
                             <div 
                                 key={index} 
-                                className={`qualification__item ${isVisible ? 'qualification__item--animate' : ''}`}
+                                className={`qualification__item qualification__item--visible ${isVisible ? 'qualification__item--animate' : ''}`}
                                 style={{ animationDelay: `${index * 0.2}s` }}
                             >
                                 <div className="qualification__timeline-marker">

@@ -32,10 +32,10 @@
     font-size: var(small-font-size);
     color: var(--title-color);
     font-weight: var(--font-medium);
-    transition: .3s;
-}
-
-.nav__close,
+          transition: .3s;
+  }
+  
+  .nav__close,
 .nav__icon,
 .nav__toggle{
     display: none;
@@ -102,9 +102,9 @@
     .nav__toggle{
         font-size: 1.1rem;
         cursor: pointer;
-    }
-
-    .nav__icon,
+            }
+    
+        .nav__icon,
     .nav__close,
     .nav__toggle{
         display: block;
