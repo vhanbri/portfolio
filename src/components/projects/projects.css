@@ -1,0 +1,390 @@
+/* Projects Section */
+.projects__container {
+  max-width: 1200px;
+  position: relative;
+  padding: 0 2rem;
+}
+
+.projects__carousel {
+  overflow: hidden;
+  position: relative;
+  border-radius: 1rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.projects__wrapper {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.projects__slide {
+  min-width: 100%;
+}
+
+.projects__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  justify-content: center;
+  align-items: stretch;
+}
+
+/* Project Card */
+.projects__card {
+  background: var(--container-color);
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.projects__card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Image Container */
+.projects__image-container {
+  position: relative;
+  overflow: hidden;
+  height: 200px;
+}
+
+.projects__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.projects__card:hover .projects__image {
+  transform: scale(1.05);
+}
+
+/* Overlay */
+.projects__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.projects__card:hover .projects__overlay {
+  opacity: 1;
+}
+
+.projects__actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.projects__link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  color: white;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.projects__link:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
+}
+
+/* Content */
+.projects__content {
+  padding: 1.5rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.projects__category {
+  font-size: var(--small-font-size);
+  color: var(--text-color);
+  background: rgba(0, 0, 0, 0.05);
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  display: inline-block;
+  margin-bottom: 0.75rem;
+  font-weight: var(--font-medium);
+}
+
+.projects__title {
+  font-size: var(--h3-font-size);
+  color: var(--title-color);
+  margin-bottom: 0.5rem;
+  font-weight: var(--font-semi-bold);
+}
+
+.projects__description {
+  color: var(--text-color);
+  font-size: var(--small-font-size);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.projects__technologies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: auto;
+  padding-top: 1rem;
+}
+
+.projects__tech {
+  background: linear-gradient(135deg, var(--title-color), var(--title-color-dark));
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  font-size: var(--tiny-font-size);
+  font-weight: var(--font-medium);
+}
+
+/* Navigation */
+.projects__navigation {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1rem;
+  pointer-events: none;
+}
+
+.projects__nav-btn {
+  width: 50px;
+  height: 50px;
+  background: var(--container-color);
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: var(--title-color);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  pointer-events: auto;
+}
+
+.projects__nav-btn:hover {
+  background: var(--title-color);
+  color: white;
+  transform: scale(1.05);
+}
+
+.projects__nav-btn:active {
+  transform: scale(0.95);
+}
+
+/* Indicators */
+.projects__indicators {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 2rem;
+}
+
+.projects__indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid var(--title-color);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.projects__indicator--active {
+  background: var(--title-color);
+  transform: scale(1.2);
+}
+
+.projects__indicator:hover {
+  background: var(--title-color);
+  transform: scale(1.1);
+}
+
+/* Animation for cards */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.projects__card {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1024px) {
+  .projects__grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .projects__slide {
+    padding: 1.5rem;
+  }
+  
+  .projects__container {
+    padding: 0 1rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .projects__grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .projects__slide {
+    padding: 1rem;
+  }
+  
+  .projects__image-container {
+    height: 180px;
+  }
+  
+  .projects__nav-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+  
+  .projects__navigation {
+    padding: 0 0.5rem;
+  }
+  
+  .projects__card {
+    max-width: 100%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .projects__container {
+    padding: 0 0.5rem;
+  }
+  
+  .projects__content {
+    padding: 1rem;
+  }
+  
+  .projects__image-container {
+    height: 160px;
+  }
+  
+  .projects__title {
+    font-size: 1rem;
+  }
+  
+  .projects__description {
+    font-size: 0.8rem;
+  }
+  
+  .projects__technologies {
+    gap: 0.25rem;
+  }
+  
+  .projects__tech {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.5rem;
+  }
+}
+
+/* Special styling for Alliance dashboard image to show sidebar */
+.projects__image--alliance {
+  object-fit: contain !important;
+  object-position: left center !important;
+  background: #f8f9fa;
+}
+
+/* Enhanced slide layout for flexible design */
+.projects__slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 500px;
+  padding: 2rem;
+}
+
+.projects__grid {
+  width: 100%;
+  max-width: 1200px;
+}
+
+/* Ensure cards have consistent height */
+.projects__card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Loading animation for images */
+.projects__image {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Accessibility improvements */
+.projects__nav-btn:focus,
+.projects__indicator:focus {
+  outline: 2px solid var(--title-color);
+  outline-offset: 2px;
+}
+
+.projects__link:focus {
+  outline: 2px solid white;
+  outline-offset: 2px;
+}
+
+/* Smooth scrolling for touch devices */
+@media (hover: none) {
+  .projects__carousel {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+  }
+  
+  .projects__slide {
+    scroll-snap-align: start;
+  }
+} 
